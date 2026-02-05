@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FullSoccer - Gestión Deportiva</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Landing Page / Role Selection -->
+    <section id="landing-page">
+        <div class="animate-fade-in">
+            <h1 class="brand-title">FullSoccer</h1>
+            <p class="brand-subtitle">La plataforma definitiva para clubes y deportistas.</p>
+
+            <div class="role-cards">
+                <!-- Admin Card -->
+                <div class="role-card">
+                    <h3>Administrador</h3>
+                    <p>Gestiona tu club, jugadores, categorías e inscripciones.</p>
+                    <button class="btn-primary" onclick="app.showAdminDashboard()">Acceso Club</button>
+                </div>
+
+                <!-- Player Card -->
+                <div class="role-card">
+                    <h3>Jugador</h3>
+                    <p>Visualiza tus estadísticas, goles y rendimiento.</p>
+                    <button class="btn-primary" onclick="app.showPlayerDashboard()">Ver Estadísticas</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admin Dashboard -->
+    <section id="admin-dashboard" class="dashboard hidden">
+        <div class="dashboard-header animate-fade-in">
+            <div>
+                <h2>Panel de Club: <span style="color:var(--primary-color)">Tigres FC</span></h2>
+                <p style="color:var(--text-muted)">Administración General</p>
+            </div>
+            <button class="back-btn" onclick="app.goHome()">Cerrar Sesión</button>
+        </div>
+
+        <div class="stats-grid grid animate-fade-in">
+            <div class="stat-card">
+                <div class="stat-value">24</div>
+                <div class="stat-label">Jugadores Activos</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">3</div>
+                <div class="stat-label">Torneos Inscritos</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">U-18</div>
+                <div class="stat-label">Categoría Principal</div>
+            </div>
+        </div>
+
+        <div class="grid animate-fade-in">
+            <div class="data-table-container">
+                <h3 class="mb-4">Plantilla de Jugadores</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Posición</th>
+                            <th>Categoría</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody id="admin-players-list">
+                        <!-- Populated by JS -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="data-table-container">
+                <h3 class="mb-4">Torneos Activos</h3>
+                <ul id="admin-tournaments-list" style="list-style: none;">
+                    <!-- Populated by JS -->
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Player Dashboard -->
+    <section id="player-dashboard" class="dashboard hidden">
+        <div class="dashboard-header animate-fade-in">
+            <div>
+                <h2>Perfil de Jugador: <span style="color:var(--secondary-color)">Carlos Ruiz</span></h2>
+                <p style="color:var(--text-muted)">Delantero - Tigres FC</p>
+            </div>
+            <button class="back-btn" onclick="app.goHome()">Volver</button>
+        </div>
+
+        <div class="stats-grid grid animate-fade-in">
+            <div class="stat-card">
+                <div class="stat-value" id="player-goals">12</div>
+                <div class="stat-label">Goles Totales</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="player-matches">15</div>
+                <div class="stat-label">Partidos Jugados</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">0.8</div>
+                <div class="stat-label">Promedio de Gol</div>
+            </div>
+        </div>
+
+        <div class="data-table-container animate-fade-in">
+            <h3 class="mb-4">Rendimiento por Torneo</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Torneo</th>
+                        <th>Partidos</th>
+                        <th>Goles</th>
+                        <th>Asistencias</th>
+                    </tr>
+                </thead>
+                <tbody id="player-stats-list">
+                    <!-- Populated by JS -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
